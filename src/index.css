@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 20% 10%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    --primary: 220 14% 10%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 6% 93%;
+    --secondary-foreground: 220 14% 20%;
+
+    --muted: 40 6% 95%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 15 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 10% 90%;
+    --input: 220 10% 90%;
+    --ring: 220 14% 10%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 220 20% 10%;
+    --sidebar-primary: 220 14% 10%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 6% 95%;
+    --sidebar-accent-foreground: 220 20% 10%;
+    --sidebar-border: 220 10% 90%;
+    --sidebar-ring: 220 14% 10%;
+
+    /* Custom tokens */
+    --glow: 15 80% 55%;
+    --glow-muted: 15 60% 40%;
+    --surface: 40 6% 96%;
+    --gradient-start: 45 95% 60%;
+    --gradient-end: 340 80% 55%;
+    --highlight: 15 80% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[hsl(45,95%,55%)] via-accent to-[hsl(340,80%,55%)];
+  }
+
+  .glow-border {
+    box-shadow: 0 0 30px hsl(15 80% 55% / 0.1);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 40px hsl(15 80% 55% / 0.3);
+  }
+
+  .glass {
+    @apply bg-background/80 backdrop-blur-xl border-b border-border;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border;
+    box-shadow: 0 0 30px hsl(15 80% 55% / 0.05);
+  }
+
+  .glass-card:hover {
+    border-color: hsl(15 80% 55% / 0.2);
+    box-shadow: 0 0 40px hsl(15 80% 55% / 0.1);
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 px-4 md:px-8;
+  }
+
+  .marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+}
